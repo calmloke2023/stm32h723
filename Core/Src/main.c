@@ -24,6 +24,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "move.h"
 
 /* USER CODE END Includes */
 
@@ -90,6 +91,8 @@ int main(void)
   MX_DMA_Init();
   MX_USART10_UART_Init();
   /* USER CODE BEGIN 2 */
+  void chassisInit();
+  move_front(1000);
 
   /* USER CODE END 2 */
 

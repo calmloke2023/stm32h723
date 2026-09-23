@@ -63,7 +63,10 @@ Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c \
 Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c \
 Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c \
 Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c \
-Core/Src/system_stm32h7xx.c  
+Core/Src/system_stm32h7xx.c \
+app/chassis/move.c \
+modules/message_center/message_center.c \
+modules/ZDT/ZDT.c   
 
 # ASM sources
 ASM_SOURCES =  \
@@ -124,7 +127,10 @@ C_INCLUDES =  \
 -IDrivers/STM32H7xx_HAL_Driver/Inc \
 -IDrivers/STM32H7xx_HAL_Driver/Inc/Legacy \
 -IDrivers/CMSIS/Device/ST/STM32H7xx/Include \
--IDrivers/CMSIS/Include
+-IDrivers/CMSIS/Include \
+-Iapp/chassis \
+-Imodules/ZDT \
+-Imodules/message_center 
 
 
 # compile gcc flags

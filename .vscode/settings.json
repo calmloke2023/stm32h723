@@ -1,0 +1,26 @@
+{
+    "C_Cpp.errorSquiggles": "enabled",
+    "files.associations": {
+        "stdio.h": "c",
+        "string.h": "c",
+        "stdint.h": "c" 
+    },
+    "code-runner.runInTerminal": true,
+    "C_Cpp.intelliSenseEngine": "default",
+     "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": false
+    },
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.suggestSelection": "first",
+    "editor.acceptSuggestionOnEnter": "on",
+    "editor.quickSuggestionsDelay": 0,
+    "editor.suggest.selectionMode": "always",
+    "editor.acceptSuggestionOnTab": true,
+    "idf.currentSetup": "D:/ESP/Espressif/frameworks/esp-idf-v5.3.1/",
+    // 让 Ctrl+N(build+download)在终端有焦点时也能触发,而不是被终端吃掉
+    "terminal.integrated.commandsToSkipShell": [
+        "workbench.action.tasks.runTask"
+    ]
+}

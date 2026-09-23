@@ -1,0 +1,8 @@
+[
+    {
+        "key": "ctrl+alt+b",
+        "command": "workbench.action.tasks.runTask",
+        "args": "build+download",
+        "when": "editorFocus || terminalFocus"
+    }
+]

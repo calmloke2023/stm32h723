@@ -1,0 +1,57 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build task", // 任务标签
+            "type": "shell", // 任务类型,因为要调用mingw32-make,是在终端(CMD)里运行的,所以是shell任务
+            "command": "make -j6", // 要执行的任务命令
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        // {
+        //     "label": "build+download", // 编译+烧录二合一,快捷键 Ctrl+N;编译失败时不会烧录
+        //     "type": "shell",
+        //     "command": "cmd /c \"make -j6 && make download_dap\"",
+        //     "problemMatcher": []
+        // },
+        {
+            "label": "download dap",
+            "type": "shell", // 如果希望在下载前编译,可以把command换成下面的命令
+            "command": "make download_dap", // "mingw32-make -j24 ; mingw32-make download_dap",
+            "group": { // 如果没有修改代码,编译任务不会消耗时间,因此推荐使用上面的替换.
+                "kind": "build",
+                "isDefault": false,
+            },
+        },
+        // {
+        //     "label": "download jlink", // 要使用此任务,需添加jlink的环境变量
+        //     "type": "shell",
+        //     "command": "mingw32-make download_jlink", // "mingw32-make -j24 ; mingw32-make download_dap"
+        //     "group": {
+        //         "kind": "build",
+        //         "isDefault": false,
+        //     }
+        // },
+        // {
+        //     "label": "rtt log", // 查看 SEGGER RTT 日志(需先 F5 启动 DAPlink 调试并让程序运行)
+        //     "type": "shell",
+        //     "command": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/rtt_view.ps1",
+        //     "problemMatcher": []
+        // },
+        {
+            "label": "rtt print", // 不按 F5:先"download dap"烧录,再运行本任务,printf/LOGINFO 直接打印到终端
+            "type": "shell",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/rtt_print.ps1",
+            "problemMatcher": []
+        },
+        // {
+        //     "label": "rtt stop", // 停掉残留的 OpenOCD(F5 调试或重新烧录前如果端口被占用,先运行本任务)
+        //     "type": "shell",
+        //     "command": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"Stop-Process -Name openocd -Force -ErrorAction SilentlyContinue\"",
+        //     "problemMatcher": []
+        // }
+    ]
+}

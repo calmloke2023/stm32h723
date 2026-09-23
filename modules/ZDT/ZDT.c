@@ -65,10 +65,8 @@ void ZdtUnregister(ZdtInstance *instance)
  */
 void  ZdtTransmit(ZdtInstance *instance,uint16_t length)
 {
-  HAL_UART_Transmit_DMA(instance->bus->uart,instance->bus->tx_buffer,length);
-  /* 主循环顺序调用：115200、8N1，当前最长13字节约需1.13ms。
-     DMA及UART中断须正常工作；改变波特率或帧长后需重新计算延时。 */
-  HAL_Delay(2);
+  HAL_UART_Transmit(instance->bus->uart,instance->bus->tx_buffer,length,HAL_MAX_DELAY);
+
 }
 
 
@@ -168,7 +166,7 @@ float ZdtRealLocation(ZdtInstance *instance)
     bus->tx_buffer[2] = 0x6B;
 
     HAL_UART_Receive_DMA(bus->uart, rx, 8);
-    HAL_UART_Transmit_DMA(bus->uart, bus->tx_buffer, 3);
+    HAL_UART_Transmit(bus->uart, bus->tx_buffer, 3,HAL_MAX_DELAY);
 
     HAL_Delay(5);
 

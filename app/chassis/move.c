@@ -19,6 +19,7 @@ void chassisInit(void)
     config.addr = i+1;
     motors[i] = ZdtRegister(&config);
     ZdtSetCurrentPositionZero(motors[i]);
+    ZdtEnable(motors[i]);
   }
 };
 
@@ -31,7 +32,6 @@ void move_front(ElemType distance)
       motors[i]->distance = distance;
       motors[i]->dir = dir[i];
 
-      ZdtEnable(motors[i]);
       ZdtPositionControl(motors[i]);
   }
 
@@ -47,7 +47,6 @@ void move_left(ElemType distance)
       motors[i]->distance = distance;
       motors[i]->dir = dir[i];
 
-      ZdtEnable(motors[i]);
       ZdtPositionControl(motors[i]);
   }
 
@@ -63,7 +62,6 @@ void move_right(ElemType distance)
       motors[i]->distance = distance;
       motors[i]->dir = dir[i];
 
-      ZdtEnable(motors[i]);
       ZdtPositionControl(motors[i]);
   }
 
@@ -79,7 +77,6 @@ void move_back(ElemType distance)
       motors[i]->distance = distance;
       motors[i]->dir = dir[i];
 
-      ZdtEnable(motors[i]);
       ZdtPositionControl(motors[i]);
   }
 

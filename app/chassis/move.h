@@ -18,4 +18,5 @@ void move_back(ElemType distance);
 // void move_rota();
 
 
+
 #endif /* MOVE_H */

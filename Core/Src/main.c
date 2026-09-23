@@ -91,8 +91,8 @@ int main(void)
   MX_DMA_Init();
   MX_USART10_UART_Init();
   /* USER CODE BEGIN 2 */
-  void chassisInit();
-  move_front(1000);
+  chassisInit();
+  move_front(10000);
 
   /* USER CODE END 2 */
 
